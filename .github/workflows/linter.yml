@@ -1,0 +1,22 @@
+
+name: Lint React App
+on:
+  push:
+    branches: [ 'feature' ]
+  pull_request:
+    branches: [ 'main' ]
+    types: [ 'created' , 'edited' ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: yarn
+      - name: Lint application
+        run: yarn lint
+      - name: Build application
+        run: yarn build
+      - name: Deploy
+        run: echo Deploying ...
