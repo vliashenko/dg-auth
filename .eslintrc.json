@@ -31,6 +31,7 @@
         "effector"
     ],
     "rules": {
+        "react/display-name": "off",
         "no-prototype-builtins": "off",
         "eqeqeq": "error",
         "react/prop-types": "off",
