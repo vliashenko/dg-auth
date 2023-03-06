@@ -1,17 +1,15 @@
 import React from "react";
-import { onLogin } from "entities/session";
+import { onLoginRequested } from "entities/session";
 import { Button } from "shared/ui";
 
-const LoginButton = () => {
+export const LoginButton = () => {
   return (
     <Button
-      onClick={() => onLogin()}
-      sx={{ fontSize: "18px", px: 4, width: "300px" }}
+      onClick={() => onLoginRequested()}
+      sx={{ fontSize: "18px", px: 4, width: 300 }}
       variant="contained"
     >
       Sign In
     </Button>
   );
 };
-
-export default LoginButton;

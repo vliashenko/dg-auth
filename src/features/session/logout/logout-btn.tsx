@@ -1,17 +1,15 @@
 import React from "react";
-import { onLogout } from "entities/session";
+import { onLogoutRequested } from "entities/session";
 import { Button } from "shared/ui";
 
-const LogoutButton = () => {
+export const LogoutButton = () => {
   return (
     <Button
-      onClick={() => onLogout()}
-      sx={{ fontSize: "18px", px: 4, width: "300px" }}
+      onClick={() => onLogoutRequested()}
+      sx={{ fontSize: "18px", px: 4, width: 300 }}
       variant="contained"
     >
       Sign Out
     </Button>
   );
 };
-
-export default LogoutButton;

@@ -1,16 +1,34 @@
 import React from "react";
 import { useStore } from "effector-react";
 
-import { $auth, $user } from "entities/session";
+import * as sessionModel from "entities/session";
 
-import LoginButton from "features/session/login";
-import LogoutButton from "features/session/logout";
+import { LoginButton } from "features/session/login";
+import { LogoutButton } from "features/session/logout";
 
 import { Container, Typography } from "shared/ui";
 
 const ProfilePage = () => {
-  const isAuth = useStore($auth);
-  const user = useStore($user);
+  const isAuth = useStore(sessionModel.$auth);
+  const user = useStore(sessionModel.$user);
+  const loading = useStore(sessionModel.isAuthenticatedFx.pending);
+
+  if (loading) {
+    return (
+      <Container
+        sx={{
+          height: "100vh",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          gap: "20px",
+        }}
+      >
+        <Typography variant="h4">Loading...⏳</Typography>
+      </Container>
+    );
+  }
 
   return (
     <Container

@@ -1,3 +1,1 @@
-import LogoutButton from "./logout-btn";
-
-export default LogoutButton;
+export { LogoutButton } from "./logout-btn";
