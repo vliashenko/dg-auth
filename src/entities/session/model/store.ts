@@ -1,6 +1,6 @@
 import { createDomain, createEffect, sample } from "effector";
 import { login, logout, getAuthStatus, getCurrentUser } from "./api";
-import { User } from "./types";
+import { UserData } from "./types";
 
 const domain = createDomain("entities/session");
 
@@ -14,7 +14,7 @@ export const isAuthenticatedFx = createEffect(getAuthStatus);
 export const getUserFx = createEffect(getCurrentUser);
 
 export const $auth = domain.store<boolean>(false);
-export const $user = domain.store<User | null>(null);
+export const $user = domain.store<UserData | null>(null);
 
 $auth.on(isAuthenticatedFx.doneData, (_, isAuth) => isAuth);
 $user.on(getUserFx.doneData, (_, data) => data);

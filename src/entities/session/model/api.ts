@@ -1,6 +1,6 @@
 import { createAuth0Client } from "@auth0/auth0-spa-js";
 import { auth } from "shared/config";
-import { User } from "./types";
+import { UserData } from "./types";
 
 const auth0 = await createAuth0Client(auth);
 
@@ -35,9 +35,15 @@ export const getAuthStatus: () => Promise<boolean> = async () => {
   }
 };
 
-export const getCurrentUser: () => Promise<User | undefined> = async () => {
+export const getCurrentUser: () => Promise<UserData | undefined> = async () => {
   try {
-    return await auth0.getUser();
+    const userData = await auth0.getUser();
+
+    if (userData?.nickname) {
+      const data: UserData = { nickName: userData.nickname };
+
+      return data;
+    }
   } catch (err) {
     return Promise.reject(new Error("User was not found or bad response"));
   }

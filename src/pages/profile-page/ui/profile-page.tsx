@@ -43,7 +43,7 @@ const ProfilePage = () => {
     >
       {isAuth && user ? (
         <>
-          <Typography variant="h4">Hello, {user.nickname}!</Typography>
+          <Typography variant="h4">Hello, {user.nickName}!</Typography>
 
           <LogoutButton />
         </>

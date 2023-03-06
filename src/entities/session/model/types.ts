@@ -1,6 +1,3 @@
-export type User = {
-  email: string;
-  name: string;
-  nickname: string;
-  picture: string;
+export type UserData = {
+  nickName: string;
 };
