@@ -1,4 +1,4 @@
 import { withProviders } from "./providers";
-import { RowApp } from "./ui";
+import { RawApp } from "./ui";
 
-export const App = withProviders(RowApp);
+export const App = withProviders(RawApp);
