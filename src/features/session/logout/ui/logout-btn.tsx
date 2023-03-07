@@ -1,5 +1,5 @@
 import React from "react";
-import { onLogoutRequested } from "entities/session";
+import { onLogoutRequested } from "../model";
 import { Button } from "shared/ui";
 
 export const LogoutButton = () => {

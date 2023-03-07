@@ -3,15 +3,13 @@ import { useStore } from "effector-react";
 
 import * as sessionModel from "entities/session";
 
-import { LoginButton } from "features/session/login";
-import { LogoutButton } from "features/session/logout";
+import { LogoutButton } from "features/session/logout/ui";
 
 import { Container, Typography } from "shared/ui";
 
 const ProfilePage = () => {
-  const isAuth = useStore(sessionModel.$auth);
   const user = useStore(sessionModel.$user);
-  const loading = useStore(sessionModel.isAuthenticatedFx.pending);
+  const loading = useStore(sessionModel.getUserFx.pending);
 
   if (loading) {
     return (
@@ -41,7 +39,7 @@ const ProfilePage = () => {
         gap: "20px",
       }}
     >
-      {isAuth && user ? (
+      {user ? (
         <>
           <Typography variant="h4">Hello, {user.nickName}!</Typography>
 
@@ -50,10 +48,8 @@ const ProfilePage = () => {
       ) : (
         <>
           <Typography variant="h4">
-            Hi! Please Sign Up to continue 👨🏻‍💻
+            Hi! Please wait a second for authorization 👨🏻‍💻
           </Typography>
-
-          <LoginButton />
         </>
       )}
     </Container>

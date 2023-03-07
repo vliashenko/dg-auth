@@ -1,3 +1,3 @@
-export type UserData = {
-  nickName: string;
+export type SessionUser = {
+  nickName: string | undefined;
 };
