@@ -1,3 +1,3 @@
 export type SessionUser = {
-  nickName: string | undefined;
+  nickName: string;
 };

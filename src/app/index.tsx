@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import Routing from "pages/routes/ui/routes";
+import React from "react";
+import { Routing } from "pages/routes";
 import { withProviders } from "./providers";
-import { onAppMounted } from "entities/session";
+import { sessionModel } from "entities/session";
 import "./index.css";
 
-const App = () => {
-  useEffect(() => {
-    onAppMounted();
+const App: React.FC = () => {
+  React.useEffect(() => {
+    sessionModel.appMounted();
   }, []);
   return <Routing />;
 };

@@ -4,13 +4,13 @@ import { SessionUser } from "./types";
 
 const domain = createDomain("entities/session");
 
-export const onAppMounted = domain.event();
+export const appMounted = domain.event();
 
 export const logoutFx = createEffect(logout);
 export const getUserFx = createEffect(getCurrentUser);
 
 export const $user = domain.store<SessionUser | null>(null);
 
-$user.on(getUserFx.doneData, (_, data) => data || null);
+$user.on(getUserFx.doneData, (_, data) => data);
 
-sample({ clock: onAppMounted, target: getUserFx });
+sample({ clock: appMounted, target: getUserFx });

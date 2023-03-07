@@ -1,1 +1,1 @@
-export * from "./ui/routes";
+export { Routing } from "./ui";

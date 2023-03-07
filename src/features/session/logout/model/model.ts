@@ -1,8 +1,10 @@
-import { createDomain, sample } from "effector";
-import { logoutFx } from "entities/session";
+import { attach, createDomain, sample } from "effector";
+import { sessionModel } from "entities/session";
 
 export const domain = createDomain("features/session/login");
 
-export const onLogoutRequested = domain.event();
+export const logoutRequested = domain.event();
 
-sample({ clock: onLogoutRequested, target: logoutFx });
+const onSignOutFx = attach({ effect: sessionModel.logoutFx });
+
+sample({ clock: logoutRequested, target: onSignOutFx });

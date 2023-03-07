@@ -1,11 +1,11 @@
 import React from "react";
-import { onLogoutRequested } from "../model";
+import { logoutModel } from "../model";
 import { Button } from "shared/ui";
 
-export const LogoutButton = () => {
+export const LogoutButton: React.FC = () => {
   return (
     <Button
-      onClick={() => onLogoutRequested()}
+      onClick={() => logoutModel.logoutRequested()}
       sx={{ fontSize: "18px", px: 4, width: 300 }}
       variant="contained"
     >

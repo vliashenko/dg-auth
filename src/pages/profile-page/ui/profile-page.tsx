@@ -1,13 +1,12 @@
 import React from "react";
 import { useStore } from "effector-react";
 
-import * as sessionModel from "entities/session";
-
-import { LogoutButton } from "features/session/logout/ui";
+import { sessionModel } from "entities/session";
 
 import { Container, Typography } from "shared/ui";
+import { LogoutButton } from "features/session";
 
-const ProfilePage = () => {
+export const ProfilePage: React.FC = () => {
   const user = useStore(sessionModel.$user);
   const loading = useStore(sessionModel.getUserFx.pending);
 
@@ -55,5 +54,3 @@ const ProfilePage = () => {
     </Container>
   );
 };
-
-export default ProfilePage;

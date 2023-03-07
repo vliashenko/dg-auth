@@ -1,2 +1,1 @@
-export * from "./login/ui";
-export * from "./logout/ui";
+export { LogoutButton } from "./logout/ui";
