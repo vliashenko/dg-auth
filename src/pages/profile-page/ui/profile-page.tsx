@@ -17,7 +17,7 @@ export const ProfilePage: React.FC = () => {
         alignItems: "center",
         justifyContent: "center",
         display: "flex",
-        gap: "20px",
+        gap: 20,
       }}
     >
       {user ? (

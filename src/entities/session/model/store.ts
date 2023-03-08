@@ -1,4 +1,4 @@
-import { createDomain, createEffect, sample } from "effector";
+import { createDomain, sample } from "effector";
 import { logout, getCurrentUser } from "./api";
 import { SessionUser } from "./types";
 
@@ -11,8 +11,8 @@ domain.onCreateStore((store) => {
 export const appMounted = domain.event();
 export const sessionClosed = domain.event();
 
-export const logoutFx = createEffect(logout);
-export const getUserFx = createEffect(getCurrentUser);
+export const logoutFx = domain.effect(logout);
+export const getUserFx = domain.effect(getCurrentUser);
 
 export const $user = domain.store<SessionUser | null>(null);
 
