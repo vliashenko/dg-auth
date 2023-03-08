@@ -1,2 +1,2 @@
-export * from "./auth0Config";
+export * from "./auth-config";
 export * from "./paths";

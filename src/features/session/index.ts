@@ -1,1 +1,1 @@
-export { LogoutButton } from "./logout/ui";
+export { LogoutButton } from "./logout";

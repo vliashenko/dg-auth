@@ -4,7 +4,12 @@ import { SessionUser } from "./types";
 
 const domain = createDomain("entities/session");
 
+domain.onCreateStore((store) => {
+  store.reset(sessionClosed);
+});
+
 export const appMounted = domain.event();
+export const sessionClosed = domain.event();
 
 export const logoutFx = createEffect(logout);
 export const getUserFx = createEffect(getCurrentUser);

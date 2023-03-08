@@ -1,7 +1,6 @@
 import React from "react";
-import { Routing } from "pages/routes";
+import { Routing } from "pages/routing";
 import { sessionModel } from "entities/session";
-import "./index.css";
 
 export const App: React.FC = () => {
   React.useEffect(() => {
